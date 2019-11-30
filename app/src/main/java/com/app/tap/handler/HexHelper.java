@@ -1,0 +1,32 @@
+package com.app.tap.handler;
+
+public class HexHelper {
+    private static final String HEX_CHARS = "0123456789ABCDEF";
+    private static final char[] HEX_CHARS_ARRAY = "0123456789ABCDEF".toCharArray();
+
+    byte[] hexStringToByteArray(String data) {
+        byte[] result = new byte[data.length() / 2];
+        for(int i = 0; i < data.length(); i += 2) {
+            int firstIndex = HEX_CHARS.indexOf(data.charAt(i)); // first hexit
+            int nextIndex = HEX_CHARS.indexOf(data.charAt(i+1)); // second hexit
+
+            Integer octet = firstIndex << 4 | nextIndex;
+            result[i >> 1] = octet.byteValue();
+        }
+
+        return result;
+    }
+    public static String toHex(byte[] byteArray) {
+        StringBuffer result = new StringBuffer();
+        for(Byte b : byteArray) {
+            Integer octet = b.intValue();
+            int firstIndex = octet & 0xF0 >>> 4;
+            int nextIndex = octet & 0xF0;
+            result.append(HEX_CHARS_ARRAY[firstIndex]);
+            result.append(HEX_CHARS_ARRAY[nextIndex]);
+        }
+
+        return result.toString();
+    }
+
+}
