@@ -1,4 +1,4 @@
-package com.app.tap;
+package com.app.tapuser;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("com.app.tap", appContext.getPackageName());
+        assertEquals("com.app.tapuser", appContext.getPackageName());
     }
 }
