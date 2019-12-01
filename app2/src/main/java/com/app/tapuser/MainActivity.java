@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements NfcAdapter.Reader
     @Override
     public void onResume() {
         super.onResume();
+        String data = "Hello World!";
         adapter.enableReaderMode(this, this,
                 NfcAdapter.FLAG_READER_NFC_A | NfcAdapter.FLAG_READER_SKIP_NDEF_CHECK, null);
     }
@@ -41,7 +42,10 @@ public class MainActivity extends AppCompatActivity implements NfcAdapter.Reader
         IsoDep isoDep = IsoDep.get(tag);
         try {
             isoDep.connect();
-            final byte[] response = isoDep.transceive(HexHelper.hexStringToByteArray("00A4040007A0000002471001"));
+            String data = "Hello World!";
+            String message = "00A4040007A0000002471001" + HexHelper.toHex(data.getBytes());
+            final byte[] response = isoDep.transceive(HexHelper.hexStringToByteArray(message));
+
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {

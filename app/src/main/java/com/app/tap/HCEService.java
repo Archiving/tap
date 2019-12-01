@@ -35,7 +35,7 @@ public class HCEService extends HostApduService {
             return HexHelper.hexStringToByteArray(STATUS_FAILED);
         }
 
-        printByteArray(commandApdu);
+        //printByteArray(commandApdu);
 
         String hexApdu = HexHelper.toHex(commandApdu);
         System.out.println(hexApdu);
@@ -52,8 +52,16 @@ public class HCEService extends HostApduService {
         }
 
         if(hexApdu.substring(10, 24).equals(AID)) {
+            System.out.println("AID matches!");
+            System.out.println("APDU comamnd size: " + hexApdu.length());
+            if(hexApdu.length() > 24) {
+                String payload = new String(HexHelper.hexStringToByteArray(hexApdu.substring(24)));
+                System.out.println(payload);
+                
+            }
             return HexHelper.hexStringToByteArray(STATUS_SUCCESS);
         }
+
         return HexHelper.hexStringToByteArray(STATUS_FAILED);
     }
 
