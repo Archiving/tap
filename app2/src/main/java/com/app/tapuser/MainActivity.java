@@ -87,6 +87,7 @@ public class MainActivity extends AppCompatActivity implements NfcAdapter.Reader
         try {
             isoDep.connect();
             String data = load("user.txt");
+            System.out.println(data);
             String message = "00A4040007A0000002471001" + HexHelper.toHex(data.getBytes());
             final byte[] response = isoDep.transceive(HexHelper.hexStringToByteArray(message));
 

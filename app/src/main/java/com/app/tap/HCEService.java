@@ -56,8 +56,7 @@ public class HCEService extends HostApduService {
             System.out.println("APDU comamnd size: " + hexApdu.length());
             if(hexApdu.length() > 24) {
                 String payload = new String(HexHelper.hexStringToByteArray(hexApdu.substring(24)));
-                Database.uploadData(payload);
-                
+                System.out.println(payload);
             }
             return HexHelper.hexStringToByteArray(STATUS_SUCCESS);
         }

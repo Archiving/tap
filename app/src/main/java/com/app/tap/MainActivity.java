@@ -28,10 +28,6 @@ public class MainActivity extends AppCompatActivity {
 
             public void onClick(View v) {
                 System.out.println("Button Clicked");
-
-                Intent DatabaseIntent = new
-                        Intent(getApplicationContext(), Database.class);
-                startActivity(DatabaseIntent);
             }
         });
     }

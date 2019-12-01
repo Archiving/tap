@@ -6,7 +6,6 @@ public class HexHelper {
 
     public static byte[] hexStringToByteArray(String data) {
         byte[] result = new byte[data.length() / 2];
-        System.out.println("String Data: " + data);
         for(int i = 0; i < data.length(); i += 2) {
             int firstIndex = HEX_CHARS.indexOf(data.charAt(i)); // first hexit
             int nextIndex = HEX_CHARS.indexOf(data.charAt(i+1)); // second hexit
