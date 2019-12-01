@@ -10,6 +10,7 @@ import android.nfc.tech.NfcA;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.app.tap.handler.HexHelper;
@@ -23,13 +24,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button button = findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
+        button.setOnClickListener(new View.OnClickListener(){
 
             public void onClick(View v) {
+                System.out.println("Button Clicked");
 
-                Intent databaseIntent = new
+                Intent DatabaseIntent = new
                         Intent(getApplicationContext(), Database.class);
-                startActivity(databaseIntent);
+                startActivity(DatabaseIntent);
             }
         });
     }
