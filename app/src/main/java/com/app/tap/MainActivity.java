@@ -12,12 +12,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.app.tap.handler.HexHelper;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    public static ArrayList<String> data = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +33,12 @@ public class MainActivity extends AppCompatActivity {
 
             public void onClick(View v) {
                 System.out.println("Button Clicked");
+                StringBuilder sb = new StringBuilder();
+                for(int i = 0; i < data.size(); i++) {
+                    System.out.println(data.get(i));
+                    sb.append(data.get(i) + "\n");
+                }
+                Toast.makeText(MainActivity.this, sb.toString(), Toast.LENGTH_LONG).show();
             }
         });
     }

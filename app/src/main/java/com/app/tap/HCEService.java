@@ -6,6 +6,7 @@ import android.nfc.cardemulation.HostApduService;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -56,7 +57,7 @@ public class HCEService extends HostApduService {
             System.out.println("APDU comamnd size: " + hexApdu.length());
             if(hexApdu.length() > 24) {
                 String payload = new String(HexHelper.hexStringToByteArray(hexApdu.substring(24)));
-                System.out.println(payload);
+                MainActivity.data.add(payload);
             }
             return HexHelper.hexStringToByteArray(STATUS_SUCCESS);
         }
