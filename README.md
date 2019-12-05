@@ -1,4 +1,4 @@
-#Tapp
+# Tapp
 
 At UBC Local Hack Day,
 This NFC reader for organizers to efficiently obtain accessibility information from event participants was built in ~9 hours.
